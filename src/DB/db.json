@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "name": "nada",
+      "email": "nada@d.com",
+      "password": "147852369741852369",
+      "id": 1
+    }
+  ],
+  "Location": [
+    {
+      "name": "buffalo_bu",
+      "phone": "01022254688",
+      "address": "Natus sint labore im",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "name": "sea fishes",
+      "phone": "012365478525",
+      "address": "Natus sint labore im",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "mahshe and kofta",
+      "phone": "01022254689",
+      "address": "Ut eos placeat vol",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "name": "mshawi____",
+      "phone": "01234578695",
+      "address": "Ut eos placeat vol",
+      "userId": 1,
+      "id": 4
+    }
+  ]
+}
