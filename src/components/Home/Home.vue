@@ -13,7 +13,7 @@
 <script>
 import { mapActions } from "vuex";
 import Navbar from "@/components/Navbar/Navbar.vue";
-import UserRest from "@/components/UserRest/UserRest.vue";
+import UserRest from "@/components/AddNewRest/UserRest.vue";
 import axios from "axios";
 
 export default {

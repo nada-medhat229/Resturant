@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import UpdateProfile from "../components/Profile/UpdateProfile.vue";
 import AddNewRest from "../components/AddNewRest/AddNewRest.vue";
+import DeleteReset from "../components/AddNewRest/DeleteReset.vue";
 import ErrorPage from "../views/ErrorPageView.vue";
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
     path: "/addnewrest",
     name: "AddNewRest",
     component: AddNewRest,
+  },
+  {
+    path: "/deletereset/:resetId",
+    name: "DeleteReset",
+    component: DeleteReset,
   },
   {
     path: "/:catchAll(.*)",
