@@ -24,12 +24,8 @@
           >
             <button class="btn btn-danger">Delete</button>
           </router-link> -->
-          <button
-            type="button"
-            class="btn btn-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
+
+          <button type="button" class="btn btn-danger" @click="showmodal(rest)">
             Delete
           </button>
         </td>
@@ -39,17 +35,34 @@
   <div class="alert alert-warning mt-5" role="alert" v-else>
     Not Any Resturant
   </div>
-  <PopUp>
-    <headfordelete> text </headfordelete>
-    <bodyfordelete>
+  <PopUp v-show="isModal" @cancel="Closing()">
+    <template #headfordelete> Restaurant ({{ userId }}) </template>
+    <div class="row">
       <form @click.prevent>
         <p>are you sure</p>
         <p>{{ name }}</p>
         <p>{{ address }}</p>
         <p>{{ phone }}</p>
+        <button @click="deleteReset(userId)" class="btn btn-danger">
+          Yes|Delete
+        </button>
       </form>
-    </bodyfordelete>
+    </div>
   </PopUp>
+  <div
+    class="alert alert-danger mt-5"
+    role="alert"
+    v-if="alertMessageSuccess.length > 0"
+  >
+    {{ alertMessageSuccess }}
+  </div>
+  <div
+    class="alert alert-warning mt-5"
+    role="alert"
+    v-if="alertMessageproblem.length > 0"
+  >
+    {{ alertMessageproblem }}
+  </div>
 </template>
 
 <script>
@@ -59,7 +72,11 @@ import { mapActions } from "vuex";
 
 export default {
   name: "UserRest",
-  props: ["allRest"],
+  props: {
+    allRest: {
+      type: Array,
+    },
+  },
   components: {
     // eslint-disable-next-line vue/no-unused-components
     PopUp,
@@ -70,34 +87,37 @@ export default {
       address: "",
       phone: "",
       resetData: "",
-      deleteReset: [],
+      userId: "",
+      isModal: false,
+      alertMessageSuccess: "",
+      alertMessageproblem: "",
     };
   },
-  mounted() {
-    let user = localStorage.getItem("user-data");
-    if (!user) {
-      this.redirectTo({ val: "signup" });
-    } else {
-      this.userId = JSON.parse(user).id;
-      this.deleteReset = this.$route.params.restid;
-      this.cancurrentuserAcess();
-    }
-  },
+  mounted() {},
   methods: {
     ...mapActions(["redirectTo"]),
-    async cancurrentuserAcess() {
-      let result = await axios.get(
-        `http://localhost:3000/Location?id=${this.deleteReset}&userId=${this.userId}`
+    showmodal(i) {
+      (this.isModal = true), (this.userId = i.id);
+      (this.name = i.name), (this.address = i.address), (this.phone = i.phone);
+    },
+    Closing() {
+      this.isModal = false;
+    },
+    async deleteReset(userId) {
+      let result = await axios.delete(
+        `http://localhost:3000/Location/${userId}`
       );
-
-      if (result.status == 200 && result.data.length > 0) {
-        this.resetData = result.data;
-        console.log(this.resetData);
-        // this.name = resetData[0].name;
-        // this.address = resetData[0].address;
-        // this.phone = resetData[0].phone;
+      if (result.status == 200) {
+        this.redirectTo({ val: "Loading" });
+        setTimeout(() => {
+          this.alertMessageSuccess = "Deleted";
+          this.alertMessageproblem = "";
+          this.isModal = false;
+          this.redirectTo({ val: "Home" });
+        }, 500);
       } else {
-        this.redirectTo({ val: "Home" });
+        this.alertMessageSuccess = "";
+        this.alertMessageproblem = "Try Agin , Some Problem";
       }
     },
   },

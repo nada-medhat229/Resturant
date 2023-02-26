@@ -9,32 +9,25 @@
   ],
   "Location": [
     {
-      "name": "buffalo_bu",
-      "phone": "01022254688",
-      "address": "Natus sint labore im",
+      "name": "Perferendis anim bla",
+      "phone": "+1 (888) 179-6979",
+      "address": "Libero qui sit eos ",
       "userId": 1,
       "id": 1
     },
     {
-      "name": "sea fishes",
-      "phone": "012365478525",
-      "address": "Natus sint labore im",
+      "name": "Corporis ut exceptur",
+      "phone": "+1 (789) 263-3312",
+      "address": "Id anim velit qui mo",
       "userId": 1,
       "id": 2
     },
     {
-      "name": "mahshe and kofta",
-      "phone": "01022254689",
-      "address": "Ut eos placeat vol",
+      "name": "Dolor ab ut in ullam",
+      "phone": "+1 (564) 411-3514",
+      "address": "Maxime dolorem quide",
       "userId": 1,
       "id": 3
-    },
-    {
-      "name": "mshawi____",
-      "phone": "01234578695",
-      "address": "Ut eos placeat vol",
-      "userId": 1,
-      "id": 4
     }
   ]
 }
