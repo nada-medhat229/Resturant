@@ -65,8 +65,9 @@ export default {
       password: "",
     };
   },
-  mounted() {
+  async mounted() {
     let user = localStorage.getItem("user-data");
+
     if (user) {
       this.name = JSON.parse(user).name;
       this.email = JSON.parse(user).email;

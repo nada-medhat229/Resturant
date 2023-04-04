@@ -28,6 +28,12 @@
           <button type="button" class="btn btn-danger" @click="showmodal(rest)">
             Delete
           </button>
+          &nbsp;
+          <router-link
+            :to="{ name: 'UpdateRest', params: { resetId: rest.id } }"
+          >
+            <button class="btn btn-success">update</button>
+          </router-link>
         </td>
       </tr>
     </tbody>

@@ -97,15 +97,17 @@ export default {
     async saveupdated() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        this.redirectTo({ val: "Profile" });
         console.log("validate");
         let result = await axios.put(
           `http://localhost:3000/users/${this.UserId}`,
           { name: this.name, email: this.email, password: this.password }
         );
-        if (result.status == 200 && result.data.length > 0) {
+        if (result.status == 200) {
           console.log("updated successfuly");
           localStorage.setItem("user-data", JSON.stringify(result.data));
+          setTimeout(() => {
+            this.redirectTo({ val: "Profile" });
+          }, 100);
         } else {
           console.warn("updated faild");
         }

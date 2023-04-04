@@ -6,6 +6,8 @@ import ProfileView from "../views/ProfileView.vue";
 import UpdateProfile from "../components/Profile/UpdateProfile.vue";
 import AddNewRest from "../components/AddNewRest/AddNewRest.vue";
 import Loading from "../components/AddNewRest/Loading.vue";
+import DeleteAll from "../components/AddNewRest/DeleteAll.vue";
+import UpdateRest from "../components/AddNewRest/UpdateRest.vue";
 import ErrorPage from "../views/ErrorPageView.vue";
 const routes = [
   {
@@ -46,6 +48,16 @@ const routes = [
     path: "/addnewrest",
     name: "AddNewRest",
     component: AddNewRest,
+  },
+  {
+    path: "/updateRest/:resetId",
+    name: "UpdateRest",
+    component: UpdateRest,
+  },
+  {
+    path: "/delete-aLL",
+    name: "DeleteAll",
+    component: DeleteAll,
   },
   {
     path: "/loadDelete",

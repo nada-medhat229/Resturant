@@ -2,32 +2,18 @@
   "users": [
     {
       "name": "nada",
-      "email": "nada@d.com",
+      "email": "nada@dd.com",
       "password": "147852369741852369",
       "id": 1
     }
   ],
   "Location": [
     {
-      "name": "Perferendis anim bla",
-      "phone": "+1 (888) 179-6979",
-      "address": "Libero qui sit eos ",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "name": "Corporis ut exceptur",
-      "phone": "+1 (789) 263-3312",
-      "address": "Id anim velit qui mo",
+      "name": "Ad asperiores sunt i",
+      "phone": "+1 (967) 455-1915",
+      "address": "Eius doloribus ipsam",
       "userId": 1,
       "id": 2
-    },
-    {
-      "name": "Dolor ab ut in ullam",
-      "phone": "+1 (564) 411-3514",
-      "address": "Maxime dolorem quide",
-      "userId": 1,
-      "id": 3
     }
   ]
 }
